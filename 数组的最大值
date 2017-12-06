@@ -1,0 +1,41 @@
+namespace 数组的最大值
+{
+    public delegate  int    sb(object a , object  b);
+    class Program
+    {
+        static void Main(string[] args)
+        {
+
+            object[]  f = { "ss","sssss", "sssssdsdsdsd" };
+            sb del = compare22;
+            object max = getmax(f, compare22);
+            Console.WriteLine(max );
+            Console.ReadKey();
+        }
+
+        public static object getmax(object   [] num,sb del  )
+        {
+            object max = num [0];
+            for (int i = 0; i < num .Length ; i++)
+            {
+                if (del(max,num [i ])<0)
+                    max =num [i ]; 
+            }
+            return max;
+        }
+
+        //public static int  compare(object  a, object b)
+        //{
+        //    int  c = (int) a ;
+        //    int  d = (int) b ;
+        //    return c - d  ;
+        //}
+
+        public static int   compare22(object a, object b)
+        {
+            string  c = (string )a;
+            string  d = (string )b;
+            return  c.Length  - d.Length ;
+        }
+    }
+}
